@@ -1,67 +1,63 @@
-# AgentsCoin — Guide
+# AgentsCoin
 
-**AgentsCoin** is a live EVM chain built for AI agents. Agents (and people) can create a wallet, get the native coin **AGENT** from a faucet, send it, and create + trade tokens on the built-in DEX. This guide is for **humans** — if you want the AI-agent setup, jump to [Use it with AI](#use-it-with-ai).
+**Give your AI agent its own money.** AgentsCoin is a live EVM chain built for AI agents — an agent (or a person) can create a wallet, get the native coin **AGENT** from a faucet, send it, and **create + trade tokens** on the built-in DEX. Below is everything: every integration, SDK, and link.
 
-- 🌐 Site: https://agents-coin.com
-- 🔎 Explorer: https://explorer.agents-coin.com
-- 💧 Faucet: https://faucet.agents-coin.com
-- 🔄 DEX: https://dex.agents-coin.com
+🌐 [agents-coin.com](https://agents-coin.com) · 🔎 [Explorer](https://explorer.agents-coin.com) · 💧 [Faucet](https://faucet.agents-coin.com) · 🔄 [DEX](https://dex.agents-coin.com)
 
 ---
 
-## 1. Add the network to your wallet (MetaMask, etc.)
-Open your wallet → Add network → enter:
+## 🤖 Plug it into an AI agent
+
+| Integration | Install / Connect | Repo |
+|---|---|---|
+| **Claude Desktop extension** (one-click) | [Download .mcpb](https://github.com/axiosdevs/agentscoin-claude-extension/releases/latest/download/agentscoin.mcpb) → Claude Desktop → Settings → Extensions → drag in | [agentscoin-claude-extension](https://github.com/axiosdevs/agentscoin-claude-extension) |
+| **Remote MCP** (any MCP client: Claude, Cursor, ChatGPT connectors) | Add connector URL: `https://agents-coin.com/mcp` | [agentscoin-mcp](https://github.com/axiosdevs/agentscoin-mcp) |
+| **MCP server** (CLI) | `npx agentscoin-mcp` | [npm](https://www.npmjs.com/package/agentscoin-mcp) · [repo](https://github.com/axiosdevs/agentscoin-mcp) |
+| **ChatGPT Custom GPT** | Create a GPT → Actions → Import URL `https://agents-coin.com/openapi.json` → Auth: None | [OpenAPI](https://agents-coin.com/openapi.json) |
+| **Python SDK** | `pip install agentscoin` | [PyPI](https://pypi.org/project/agentscoin) · [repo](https://github.com/axiosdevs/agentscoin-sdk) |
+| **Coinbase AgentKit** | `npm i agentkit-agentscoin` | [npm](https://www.npmjs.com/package/agentkit-agentscoin) · [repo](https://github.com/axiosdevs/agentkit-agentscoin) |
+| **n8n** (no-code) | Settings → Community Nodes → `n8n-nodes-agentscoin` | [npm](https://www.npmjs.com/package/n8n-nodes-agentscoin) · [repo](https://github.com/axiosdevs/n8n-nodes-agentscoin) |
+| **ElizaOS plugin** | `npm i plugin-agentscoin` | [npm](https://www.npmjs.com/package/plugin-agentscoin) · [repo](https://github.com/axiosdevs/plugin-agentscoin) |
+
+**9 tools:** `network_info` · `create_wallet` · `mine` (faucet) · `balance` · `send` · `create_coin` · `add_liquidity` · `swap` · `reveal_private_key`
+
+Once connected, just talk to the agent: *"Create an AgentsCoin wallet"* → *"Get AGENT from the faucet"* → *"Create a token DOGEAI and add liquidity"* → *"Buy some"*. It signs and broadcasts every transaction itself.
+
+---
+
+## 👤 Use it yourself (no AI)
+
+**1. Add the network** (MetaMask → Add network), or click *Add network* on [agents-coin.com](https://agents-coin.com):
 
 | Field | Value |
 |---|---|
 | Network name | AgentsCoin |
-| RPC URL | https://rpc.agents-coin.com |
-| Chain ID | 24368 |
-| Currency symbol | AGENT |
-| Block explorer | https://explorer.agents-coin.com |
+| RPC URL | `https://rpc.agents-coin.com` |
+| Chain ID | `24368` |
+| Symbol | `AGENT` |
+| Explorer | `https://explorer.agents-coin.com` |
 
-Or just click **Add network** on https://agents-coin.com (auto-fills it).
+**2. Get AGENT** — claim free at the [faucet](https://faucet.agents-coin.com) (needed for gas).
 
-## 2. Get AGENT (free)
-Open the **faucet** (https://faucet.agents-coin.com), paste your address, and claim. AGENT is free — it's a sandbox chain, there's nothing to buy. You need a little AGENT to pay gas for any action.
-
-## 3. Use the DEX
-At https://dex.agents-coin.com you can:
-- **Create a token** — deploy your own ERC-20 in one click.
-- **Add liquidity** — pair your token with AGENT to open a trading pool (you become the first LP).
-- **Swap** — buy/sell tokens against the pools.
-
-Every token you create is auto-verified on the explorer.
-
-## 4. Explorer
-Track addresses, transactions, tokens, and contracts at https://explorer.agents-coin.com.
+**3. Use the [DEX](https://dex.agents-coin.com)** — create a token, add liquidity (open a pool), swap. Tokens auto-verify on the explorer.
 
 ---
 
-## Use it with AI
-AgentsCoin gives an AI agent its own wallet, so it can do all of the above from a chat prompt.
-
-**Claude Desktop (one-click):**
-1. Download [agentscoin.mcpb](https://github.com/axiosdevs/agentscoin-claude-extension/releases/latest/download/agentscoin.mcpb)
-2. Claude Desktop → Settings → Extensions → drag it in.
-3. Ask: *"Create an AgentsCoin wallet"*, *"get AGENT from the faucet"*, *"create a token and add liquidity"*.
-
-**No-install (any MCP client — Claude, Cursor, ChatGPT connectors):**
-Add the remote server URL: `https://agents-coin.com/mcp`
-
-**ChatGPT Custom GPT:**
-Create a GPT → Configure → Actions → Import from URL: `https://agents-coin.com/openapi.json` → Authentication: None.
-
-**Developers:**
-- MCP server: `npx agentscoin-mcp` — https://github.com/axiosdevs/agentscoin-mcp
-- Python SDK: `pip install agentscoin`
-- Also: Coinbase AgentKit, n8n, ElizaOS plugins (see the MCP repo).
+## 🔧 For developers (HTTP)
+- **REST API:** `https://agents-coin.com/api/v1/` — `network · wallet · balance · faucet · send · token · liquidity · swap` ([OpenAPI](https://agents-coin.com/openapi.json))
+- **Remote MCP (Streamable HTTP):** `https://agents-coin.com/mcp`
+- **JSON-RPC:** `https://rpc.agents-coin.com`
 
 ---
 
-## Network reference
-- Name: **AgentsCoin** · Chain ID **24368** (0x5f30) · Symbol **AGENT** · 18 decimals
-- RPC: https://rpc.agents-coin.com
-- It's a sandbox chain; AGENT is free from the faucet. MIT-licensed tooling.
+## 📋 All links
 
-Questions: contact@agents-coin.com
+**Network:** AgentsCoin · Chain ID **24368** (0x5f30) · Symbol **AGENT** · 18 decimals · RPC `https://rpc.agents-coin.com`
+
+**Apps:** [Site](https://agents-coin.com) · [Explorer](https://explorer.agents-coin.com) · [Faucet](https://faucet.agents-coin.com) · [DEX](https://dex.agents-coin.com)
+
+**Repos:** [agentscoin-mcp](https://github.com/axiosdevs/agentscoin-mcp) · [agentscoin-claude-extension](https://github.com/axiosdevs/agentscoin-claude-extension) · [agentscoin-sdk](https://github.com/axiosdevs/agentscoin-sdk) · [agentkit-agentscoin](https://github.com/axiosdevs/agentkit-agentscoin) · [n8n-nodes-agentscoin](https://github.com/axiosdevs/n8n-nodes-agentscoin) · [plugin-agentscoin](https://github.com/axiosdevs/plugin-agentscoin)
+
+**Packages:** [npm: agentscoin-mcp](https://www.npmjs.com/package/agentscoin-mcp) · [PyPI: agentscoin](https://pypi.org/project/agentscoin) · [npm: agentkit-agentscoin](https://www.npmjs.com/package/agentkit-agentscoin) · [npm: n8n-nodes-agentscoin](https://www.npmjs.com/package/n8n-nodes-agentscoin) · [npm: plugin-agentscoin](https://www.npmjs.com/package/plugin-agentscoin)
+
+It's a sandbox chain; AGENT is free from the faucet. MIT-licensed tooling. · [Privacy](https://agents-coin.com/privacy.html) · contact@agents-coin.com
