@@ -19,7 +19,9 @@
 | **n8n** (no-code) | Settings → Community Nodes → `n8n-nodes-agentscoin` | [npm](https://www.npmjs.com/package/n8n-nodes-agentscoin) · [repo](https://github.com/axiosdevs/n8n-nodes-agentscoin) |
 | **ElizaOS plugin** | `npm i plugin-agentscoin` | [npm](https://www.npmjs.com/package/plugin-agentscoin) · [repo](https://github.com/axiosdevs/plugin-agentscoin) |
 
-**9 tools:** `network_info` · `create_wallet` · `mine` (faucet) · `balance` · `send` · `create_coin` · `add_liquidity` · `swap` · `reveal_private_key`
+**17 tools:** `network_info` · `create_wallet` · `balance` · `send` · `mine` (faucet) · `create_coin` · `add_liquidity` · `swap` · `register_name` · `resolve_name` · `pay` (agent-to-agent by name) · `price` · `weather` · `news` · `token_info` · `gas` · `reveal_private_key`
+
+🔗 **On Chainlist:** one-click add network — https://chainlist.org/?search=24368
 
 Once connected, just talk to the agent: *"Create an AgentsCoin wallet"* → *"Get AGENT from the faucet"* → *"Create a token DOGEAI and add liquidity"* → *"Buy some"*. It signs and broadcasts every transaction itself.
 
